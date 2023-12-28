@@ -4,6 +4,7 @@ require_once __DIR__ . "/../vendor/autoload.php";
 
 use App\controller\HomeController;
 use App\core\router;
+use App\controller\Getusers;
 
 session_start();
 
@@ -19,5 +20,8 @@ $route->get("/", function () {
 });
 $route->get("/shop", function () {
     HomeController::shop();
+});
+$route->get("/dash", function () {
+    Getusers::getusers();
 });
 $route->dispatch($uri, $method);

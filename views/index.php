@@ -1,3 +1,8 @@
+<?php
+   
+ 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,7 +35,7 @@
 </head>
 
 <body>
-
+   
     <!-- Spinner Start -->
     <div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
         <div class="spinner-grow text-primary" role="status"></div>
@@ -56,7 +61,7 @@
         <div class="container px-0">
             <nav class="navbar navbar-light bg-white navbar-expand-xl">
                 <a href="index.html" class="navbar-brand">
-                    <h1 class="text-primary display-6">Fruitables</h1>
+                    <h1 class="text-primary display-6"> <a href="dashboard.php">dash</a>Fruitables</h1>
                 </a>
                 <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="fa fa-bars text-primary"></span>

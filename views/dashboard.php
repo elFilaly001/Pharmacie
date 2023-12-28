@@ -9,7 +9,15 @@
     <meta name="author" content="" />
     <title>Dashboard - SB Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
-    <link href="assets/styles/styles.css" rel="stylesheet" />
+    <link href="assets/styles/style.css" rel="stylesheet" />
+    <!-- <link href="assets/styles/styles.scss" rel="stylesheet" /> -->
+    <link href="assets/styles/css/styles.css" rel="stylesheet" />
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
 </head>
 
@@ -156,26 +164,64 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                     <div class="row">
                         <div class="col-xl-6">
-                            <div class="card mb-4">
+                            <div class=" mb-4">
                                 <div class="card-header">
-                                    <i class="fas fa-chart-area me-1"></i>
-                                    Area Chart Example
-                                </div>
-                                <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
+                                <h3>Add New Sale</h3>
+                    <form action="">
+
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                 client
+                            </label>
                             </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="card mb-4">
-                                <div class="card-header">
-                                    <i class="fas fa-chart-bar me-1"></i>
-                                    Bar Chart Example
-                                </div>
-                                <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                new client
+                                </label>
                             </div>
+
+                         
+                            
+                        <div class="d-flex gap-5 align-items-center">
+                            <div >
+                            <label for="SelectUser">Choose a client</label>
+                                <select id="select-state" name="SelectUser" placeholder="Pick a client..." style="width:120%">
+                                        <option value="">Select a client...</option>
+                                        <option value="AL">Alabama</option>
+                                        <option value="AK">Alaska</option>
+                                        <option value="AZ">Arizona</option>
+                                </select>
+                            </div>
+
+                            <div >
+                            <label for="SelectMedicin">Choose a midicin</label>
+                                <select id="select-state" name="SelectMedicin" placeholder="Pick a client..." style="width:120%">
+                                        <option value="">Select a client...</option>
+                                        <option value="AL">Alabama</option>
+                                        <option value="AK">Alaska</option>
+                                        <option value="AZ">Arizona</option>
+                                </select>
+                            </div>
+
+                            <div >
+                            <input type="submit" value ="save"  name="add-new-m-sale" style="width: 125% !important;" class="btn btn-outline-success">
+                            </div>
+
+                          
+
                         </div>
-                    </div>
+                        </form>
+                                  
+</div>
+                           
+                        </div>
+                        
+                    </div> 
                     <div class="card mb-4">
                         <div class="card-header">
                             <i class="fas fa-table me-1"></i>
@@ -681,7 +727,7 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-    <script src="js/scripts.js"></script>
+    <script src="assets/js/js/scripts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
     <script src="assets/js/chart-area-demo.js"></script>
     <script src="assets/js/chart-bar-demo.js"></script>
