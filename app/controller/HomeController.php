@@ -12,4 +12,7 @@ class HomeController
     {
         require __DIR__ . "/../../views/shop.php";
     }
+    public static function dashboard(){
+        require __DIR__. "/../../views/dashboard.php";
+    }
 }

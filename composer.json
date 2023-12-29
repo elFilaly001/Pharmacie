@@ -1,15 +1,15 @@
 {
-  "name": "youcode/pharmacie",
-  "autoload": {
-    "psr-4": {
-      "App\\": "app/"
-    }
-  },
-  "authors": [
-    {
-      "name": "El Filaly",
-      "email": "elfilalyabdeljalil@gmail.com"
-    }
-  ],
-  "require": {}
+    "name": "youcode/pharmacie",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "khalid",
+            "email": "khalidgara8@gmail.com"
+        }
+    ],
+    "require": {}
 }

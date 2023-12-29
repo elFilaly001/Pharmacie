@@ -20,4 +20,7 @@ $route->get("/", function () {
 $route->get("/shop", function () {
     HomeController::shop();
 });
+$route->get("/dash", function () {
+    HomeController::dashboard();
+});
 $route->dispatch($uri, $method);
