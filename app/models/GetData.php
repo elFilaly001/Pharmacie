@@ -17,7 +17,13 @@ class GetData{
 
     public function getUsers(){
 
-        $sql = "SELECT full_name FROM user";
+        $sql = "SELECT full_name FROM medicine";
+        $result = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+    public function getMidicin(){
+
+        $sql = "SELECT med_name FROM user";
         $result = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }

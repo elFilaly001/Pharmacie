@@ -165,7 +165,7 @@
                             <label for="SelectUser">Choose a client</label>
                                 <select id="select-state" name="SelectUser" placeholder=" client" >
                                         <option value="">Select a client...</option>
-                                        <?php foreach($Result as $client) :?>
+                                        <?php foreach($Users as $client) :?>
                                         <option value="<?php echo $client['full_name']; ?>"><?php echo $client['full_name']; ?></option>
                                         <?php endforeach; ?> 
                                 </select>

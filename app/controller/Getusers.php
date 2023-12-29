@@ -9,8 +9,9 @@ class Getusers{
 
     public static function getusers(){
           
-    $users = new GetData;
-    $Result = $users->getUsers();
+    $data  = new GetData;
+    $Users = $data->getUsers();
+    $Users = $data->getMidicin();
     require __DIR__ . "/../../views/dashboard.php";
 
 
