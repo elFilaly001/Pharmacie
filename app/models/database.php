@@ -28,7 +28,6 @@ class Database
         if (!self::$instance) {
             self::$instance = new self();
         }
-
         return self::$instance;
     }
 
