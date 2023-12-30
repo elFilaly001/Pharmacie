@@ -10,6 +10,9 @@
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="assets/styles/css/styles.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.5/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.5/dist/sweetalert2.all.min.js"></script>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -159,13 +162,13 @@
                                     <div class="card-header" style="width: 100% !important;margin-bottom: 0 !important;">
                                         <h3>Add New Sale</h3>
            
-                                        <form action="/sale" method="post">
+                                        <form  id="addUserForm">
 
 
                                             <div class="d-flex gap-5 align-items-center">
                                                 <div  style ="width :26%">
                                                 <label for="SelectUser">Choose a client</label>
-                                                    <select id="select-state" name="SelectUser" placeholder=" client" >
+                                                    <select id="select-client" name="SelectUser" placeholder=" client" >
                                                             <option value="">Select a client...</option>
                                                             <?php foreach($Users as $client) :?>
                                                             <option value="<?php echo $client['user_id']; ?>"><?php echo $client['full_name']; ?></option>
@@ -175,7 +178,7 @@
 
                                                 <div style ="width :26%">
                                                 <label for="SelectMedicin">Choose a midicin</label>
-                                                    <select id="select-state" name="SelectMedicin" placeholder="midicin" >
+                                                    <select id="select-midi" name="SelectMedicin" placeholder="midicin" >
                                                     <option value="">Select a midicine...</option>
                                                     <?php foreach($Midi as $Midi) :?>
                                                     <option value="<?php echo $Midi['med_id']; ?>"><?php echo $Midi['med_name']; ?></option>
@@ -185,11 +188,13 @@
                                                 </div>
 
                                                 <div >
-                                                <input type="submit" value ="save"  name="add-new-m-sale" style="width: 125% !important;" class="btn btn-outline-success">
+                                                <!-- <input type="submit" value ="save"  name="add-new-m-sale" style="width: 125% !important;" class="btn btn-outline-success"> -->
+                                                <button type="button" onclick="addNewUser()"  style="width: 125% !important;" class="btn btn-outline-success">save</button>
                                                 </div>
 
                                             </div>
                                         </form>
+                         
                                     </div>
                                 </div>
                             </div>

@@ -30,3 +30,52 @@ $(document).ready(function () {
         sortField: 'text'
     });
 });
+
+function addNewUser(){
+        const client = document.getElementById('select-client').value;
+        const midi = document.getElementById('select-midi').value;
+
+        // Create a JSON object with the data
+        const data = {
+            client: client,
+            midi: midi
+        };
+
+        // Convert the data to a JSON string
+        const jsonData = JSON.stringify(data);
+
+        // Make an AJAX request to add a new user
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', '/sale', true);
+        xhr.setRequestHeader('Content-Type', 'application/json'); //================>    بحلا كتقول للسرفر هد 
+                                                                                //    data li bghit nssift raha b forma json 
+
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4) {
+                if (xhr.status == 200) {
+                    if(xhr.responseText == 'sale is secces'){
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success!',
+                            text: xhr.responseText,
+                           
+                        });
+                    }else{
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: xhr.responseText,
+                         
+                        });
+                    }
+                 
+                } else {
+                  
+                    console.error('Error:', xhr.status, xhr.statusText);
+                }
+            }
+        };
+
+        // Send the JSON data
+        xhr.send(jsonData);
+    }

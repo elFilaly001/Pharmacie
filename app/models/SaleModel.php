@@ -37,7 +37,7 @@ class SaleModel{
     public function addSale($client,$midi){
 
         $num = uniqid();
-        var_dump($num);
+        echo 'sale is secces';
         $sql = "INSERT INTO sale ( sale_number,sale_plat, user_id, med_id) VALUES (  '$num' , 'store', $client,$midi)";
         $result = $this->db->exec($sql);
 
