@@ -6,7 +6,7 @@ namespace App\Models;
 define('DB_HOST', 'localhost');
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');
-define('DB_NAME', 'PHARMACY');
+define('DB_NAME', 'pharmacy');
 use PDO;
 
 class Database
@@ -31,7 +31,6 @@ class Database
         if (!self::$instance) {
             self::$instance = new self();
         }
-
         return self::$instance;
     }
 

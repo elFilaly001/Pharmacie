@@ -154,31 +154,34 @@
                         </div>
                         <div class="row ">
 
-<div class="col-xl-6">
-    <div class=" mb-4 d-flex gap-1">
-        <div class="card-header" style="width: 100% !important;margin-bottom: 0 !important;">
-            <h3>Add New Sale</h3>
-                    <form action="">
+                            <div class="col-xl-6">
+                                <div class=" mb-4 d-flex gap-1">
+                                    <div class="card-header" style="width: 100% !important;margin-bottom: 0 !important;">
+                                        <h3>Add New Sale</h3>
+           
+                                        <form action="/sale" method="post">
 
-                        <div class="d-flex gap-5 align-items-center">
-                            <div  style ="width :26%">
-                            <label for="SelectUser">Choose a client</label>
-                                <select id="select-state" name="SelectUser" placeholder=" client" >
-                                        <option value="">Select a client...</option>
-                                        <?php foreach($Users as $client) :?>
-                                        <option value="<?php echo $client['full_name']; ?>"><?php echo $client['full_name']; ?></option>
-                                        <?php endforeach; ?> 
-                                </select>
-                            </div>
+
+                                            <div class="d-flex gap-5 align-items-center">
+                                                <div  style ="width :26%">
+                                                <label for="SelectUser">Choose a client</label>
+                                                    <select id="select-state" name="SelectUser" placeholder=" client" >
+                                                            <option value="">Select a client...</option>
+                                                            <?php foreach($Users as $client) :?>
+                                                            <option value="<?php echo $client['user_id']; ?>"><?php echo $client['full_name']; ?></option>
+                                                            <?php endforeach; ?> 
+                                                    </select>
+                                                </div>
 
                                                 <div style ="width :26%">
                                                 <label for="SelectMedicin">Choose a midicin</label>
                                                     <select id="select-state" name="SelectMedicin" placeholder="midicin" >
-                                                            <option value="">Select a client...</option>
-                                                            <option value="AL">Alabama</option>
-                                                            <option value="AK">Alaska</option>
-                                                            <option value="AZ">Arizona</option>
+                                                    <option value="">Select a midicine...</option>
+                                                    <?php foreach($Midi as $Midi) :?>
+                                                    <option value="<?php echo $Midi['med_id']; ?>"><?php echo $Midi['med_name']; ?></option>
+                                                    <?php endforeach; ?> 
                                                     </select>
+                                                   
                                                 </div>
 
                                                 <div >
@@ -193,19 +196,18 @@
 
                     <div class="col-xl-6">
                             <div class="card-header" style="width: 100% !important;margin-bottom: 0 !important;">
-                                <h3>Add New Sale</h3>
+                                <h3>Add New Client</h3>
                                         <form action="">
 
                                             <div class="d-flex gap-5 align-items-center">
+
                                                 <div >
-                                                <label for="SelectUser">Choose a client</label>
-                                                <input type="text">
+                                                    <label for="SelectUser">Choose a client</label>
+                                                    <input type="text">
                                                 </div>
 
-
-
-                                                <div >
-                                                <input type="submit" value ="save"  name="add-new-m-sale" style="width: 125% !important;" class="btn btn-outline-success">
+                                                <div>
+                                                    <input type="submit" value ="save"  name="add-new-m-sale" style="width: 125% !important;" class="btn btn-outline-success">
                                                 </div>
 
                                             </div>
