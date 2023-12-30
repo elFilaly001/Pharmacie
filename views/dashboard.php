@@ -162,7 +162,7 @@
                                     <div class="card-header" style="width: 100% !important;margin-bottom: 0 !important;">
                                         <h3>Add New Sale</h3>
            
-                                        <form  id="addUserForm">
+                                        <form >
 
 
                                             <div class="d-flex gap-5 align-items-center">
@@ -188,8 +188,7 @@
                                                 </div>
 
                                                 <div >
-                                                <!-- <input type="submit" value ="save"  name="add-new-m-sale" style="width: 125% !important;" class="btn btn-outline-success"> -->
-                                                <button type="button" onclick="addNewUser()"  style="width: 125% !important;" class="btn btn-outline-success">save</button>
+                                                <button type="button" onclick="addNewSale()"  style="width: 125% !important;" class="btn btn-outline-success">save</button>
                                                 </div>
 
                                             </div>

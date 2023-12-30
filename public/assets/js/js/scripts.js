@@ -31,7 +31,7 @@ $(document).ready(function () {
     });
 });
 
-function addNewUser(){
+function addNewSale(){
         const client = document.getElementById('select-client').value;
         const midi = document.getElementById('select-midi').value;
 
