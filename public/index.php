@@ -1,10 +1,12 @@
 <?php
-
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
 require_once __DIR__ . "/../vendor/autoload.php";
 
 use App\controller\HomeController;
 use App\core\router;
-use App\controller\Getusers;
+use App\controller\DashController;
+use App\controller\SaleController;
 
 session_start();
 
@@ -22,6 +24,10 @@ $route->get("/shop", function () {
     HomeController::shop();
 });
 $route->get("/dash", function () {
-    Getusers::getusers();
+    DashController::getdata();
 });
+$route->post("/sale", function () {
+    SaleController::addsale();
+});
+
 $route->dispatch($uri, $method);
