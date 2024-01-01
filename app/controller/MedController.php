@@ -20,14 +20,29 @@ class saleController
         foreach ($results as $result) :
 ?>
             <tr>
-                <td><?= $result[''] ?></td>
-                <td>System Architect</td>
-                <td>Edinburgh</td>
-                <td>61</td>
-                <td>2011/04/25</td>
-                <td>$320,800</td>
+                <td><?= $result['img'] ?></td>
+                <td><?= $result['med_name'] ?></td>
+                <td><?= $result['description'] ?></td>
+                <td><?= $result['type'] ?></td>
+                <td><?= $result['price'] ?></td>
+                <td class="d-flex justify-content-around">
+                    <form action="#" method="post">
+                        <input type="hidden" name="med_id" value="<?= $result['med_id'] ?>" />
+                        <button type="submit" name="update" class="btn btn-success"><i class="fa-solid fa-pen-to-square"></i></button>
+                        <button type="submit" name="delete" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
+                    </form>
+                </td>
             </tr>
 <?php
         endforeach;
+    }
+
+    public function DeleteMed()
+    {
+        $id = $_POST["med_id"];
+        $med = new MedModal();
+        if (isset($_POST['delete'])) {
+            $med->DeleteMed($id);
+        }
     }
 }
