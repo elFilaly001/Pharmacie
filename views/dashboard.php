@@ -161,10 +161,7 @@
                                 <div class=" mb-4 d-flex gap-1">
                                     <div class="card-header" style="width: 100% !important;margin-bottom: 0 !important;">
                                         <h3>Add New Sale</h3>
-           
                                         <form >
-
-
                                             <div class="d-flex gap-5 align-items-center">
                                                 <div  style ="width :26%">
                                                 <label for="SelectUser">Choose a client</label>
@@ -193,16 +190,14 @@
 
                                             </div>
                                         </form>
-                         
                                     </div>
                                 </div>
                             </div>
 
-                    <div class="col-xl-6">
+                        <div class="col-xl-6">
                             <div class="card-header" style="width: 100% !important;margin-bottom: 0 !important;">
                                 <h3>Add New Client</h3>
                                         <form action="">
-
                                             <div class="d-flex gap-5 align-items-center">
 
                                                 <div >
@@ -217,8 +212,7 @@
                                             </div>
                                         </form>
                             </div>
-                    
-                    </div>
+                         </div>
 
                         <div class="card mb-4">
                             <div class="card-header">

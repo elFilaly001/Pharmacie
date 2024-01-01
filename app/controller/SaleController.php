@@ -29,13 +29,44 @@ class SaleController {
             
             if(!($addSall->addSale($Client, $Midi))){
                 print_r($addSall->error);
+            }else{
+                echo 'sale is secces';
             }
+      }
+    }
+        public static function affsale() {
 
+            $affSall = new SaleModel;
+            $Aff = $affSall->Affsale();
+            if(!$Aff){
+                print_r($addSall->error);
+            }
+            require __DIR__ . "/../../views/sales.php";
 
         }
+        public static function updatesale() {
+   
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    
+    
+                $json_data = file_get_contents('php://input');
+    
+                // Decode JSON data
+                $data = json_decode($json_data, true);
+            
+                // Access the data as needed
+                $Client = $data['client'];
+                $Midi = $data['midi'];
+                $date = $data['date'];
+                $id = $data['id'];
 
-       
-    }
-
-
+                $addSall = new SaleModel;
+                
+                if(!($addSall->UpdateSale($Client,$Midi,$date,$id))){
+                    print_r($addSall->error);
+                }else{
+                    echo 'yeeeesss';
+                }
+          }
+        }
 }

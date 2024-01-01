@@ -29,5 +29,12 @@ $route->get("/dash", function () {
 $route->post("/sale", function () {
     SaleController::addsale();
 });
+$route->post("/updatesale", function () {
+    SaleController::updatesale();
+});
+
+$route->get("/sales", function () {
+    SaleController::affsale();
+});
 
 $route->dispatch($uri, $method);
