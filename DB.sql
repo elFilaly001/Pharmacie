@@ -1,9 +1,13 @@
 CREATE DATABASE PHARMACY;
 USE PHARMACY;
 
+CREATE DATABASE PHARMACY;
+USE PHARMACY;
+
 CREATE TABLE user (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     full_name VARCHAR(50),
+    email VARCHAR(50) ,
     email VARCHAR(50) ,
     pwd VARCHAR(255),
     user_role ENUM('admin', 'patient'), 
@@ -44,6 +48,7 @@ CREATE TABLE sale (
 CREATE TABLE stock_raport (
     stock_raport_id INT AUTO_INCREMENT PRIMARY KEY,
     raport_number INT UNIQUE,
+    description TEXT
     description TEXT
 );
 
