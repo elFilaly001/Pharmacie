@@ -2,11 +2,8 @@
 
 namespace App\Models;
 
-// require_once __DIR__ . '../../config/config.php';
-define('DB_HOST', 'localhost');
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD', '');
-define('DB_NAME', 'PHARMACY');
+require_once __DIR__ . '../../config/config.php';
+
 use PDO;
 
 final class Database

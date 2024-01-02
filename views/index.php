@@ -37,6 +37,7 @@
             <nav class="navbar navbar-light bg-white navbar-expand-xl">
                 <a href="index.html" class="navbar-brand">
                     <h1 class="text-primary display-6">Life<i class="fa-solid fa-heart-pulse"></i>Line</h1>
+
                 </a>
                 <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
                     <div class="navbar-nav mx-auto">
@@ -82,6 +83,7 @@
                                 <a href="#" class="btn px-4 py-2 text-white rounded">Antibiotics</a>
                             </div>
                             <div class="carousel-item rounded">
+
                                 <img src="assets/img2/vaccines.jpg " class="img-fluid rounded" style="height: 35vh;" alt="Second slide">
                                 <a href="#" class="btn px-4 py-2 text-white rounded">Vaccines</a>
                             </div>

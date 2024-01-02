@@ -8,8 +8,10 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Charts - SB Admin</title>
-    <link href="assets/styles/styles.css" rel="stylesheet" />
+    <link href="assets/styles/css/styles.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body class="sb-nav-fixed">
@@ -119,43 +121,79 @@
                         <li class="breadcrumb-item active">Charts</li>
                     </ol>
                     <div class="card mb-4">
-                        <div class="card-body">
-                            Chart.js is a third party plugin that is used to generate the charts in this template. The charts below have been customized - for further customization options, please visit the official
-                            <a target="_blank" href="https://www.chartjs.org/docs/latest/">Chart.js documentation</a>
-                            .
-                        </div>
-                    </div>
-                    <div class="card mb-4">
-                        <div class="card-header">
-                            <i class="fas fa-chart-area me-1"></i>
-                            Area Chart Example
-                        </div>
-                        <div class="card-body"><canvas id="myAreaChart" width="100%" height="30"></canvas></div>
-                        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="card mb-4">
-                                <div class="card-header">
-                                    <i class="fas fa-chart-bar me-1"></i>
-                                    Bar Chart Example
+
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <svg class="svg-inline--fa fa-table fa-w-16 me-1" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="table" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
+                                    <path fill="currentColor" d="M464 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V80c0-26.51-21.49-48-48-48zM224 416H64v-96h160v96zm0-160H64v-96h160v96zm224 160H288v-96h160v96zm0-160H288v-96h160v96z"></path>
+                                </svg><!-- <i class="fas fa-table me-1"></i> Font Awesome fontawesome.com -->
+                                DataTable Example
+                            </div>
+                            <div class="card-body">
+                                <div class="datatable-wrapper datatable-loading no-footer sortable searchable fixed-columns">
+                                    <div class="datatable-top">
+                                        <div class="datatable-dropdown">
+                                            <label>
+                                                <select class="datatable-selector">
+                                                    <option value="5">5</option>
+                                                    <option value="10" selected="">10</option>
+                                                    <option value="15">15</option>
+                                                    <option value="20">20</option>
+                                                    <option value="25">25</option>
+                                                </select> entries per page
+                                            </label>
+                                        </div>
+                                        <div class="datatable-search">
+                                            <input class="datatable-input" placeholder="Search..." type="search" title="Search within table" aria-controls="datatablesSimple">
+                                        </div>
+                                    </div>
+                                    <div class="datatable-container">
+                                        <table id="datatablesSimple" class="datatable-table">
+                                            <thead>
+                                                <tr>
+                                                    <th data-sortable="true" style="width: 17.358171041490262%;"><button class="datatable-sorter">Med Name</button></th>
+                                                    <th data-sortable="true" style="width: 23.539373412362405%;"><button class="datatable-sorter">Type</button></th>
+                                                    <th data-sortable="true" style="width: 15.918712955122777%;"><button class="datatable-sorter">description</button></th>
+                                                    <th data-sortable="true" style="width: 10.584250635055039%;"><button class="datatable-sorter">price</button></th>
+                                                    <th data-sortable="true" style="width: 18.204911092294665%;"><button class="datatable-sorter">img</button></th>
+                                                    <th data-sortable="true" style="width: 18.204911092294665%;"><button class="datatable-sorter">action</button></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr data-index="0">
+                                                    <td>Tiger Nixon</td>
+                                                    <td>System Architect</td>
+                                                    <td>Edinburgh</td>
+                                                    <td>61</td>
+                                                    <td>2011/04/25</td>
+                                                    <td class="d-flex justify-content-around">
+                                                        <button type="submit" class="btn btn-success"><i class="fa-solid fa-pen-to-square"></i></button>
+                                                        <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>Sale Number</th>
+                                                    <th>Date</th>
+                                                    <th>Platform</th>
+                                                    <th>Medicine</th>
+                                                    <th>Added By</th>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                    <div class="datatable-bottom">
+                                        <div class="datatable-info">Showing 1 to 1 of 1 entries</div>
+                                        <nav class="datatable-pagination">
+                                            <ul class="datatable-pagination-list"></ul>
+                                        </nav>
+                                    </div>
                                 </div>
-                                <div class="card-body"><canvas id="myBarChart" width="100%" height="50"></canvas></div>
-                                <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="card mb-4">
-                                <div class="card-header">
-                                    <i class="fas fa-chart-pie me-1"></i>
-                                    Pie Chart Example
-                                </div>
-                                <div class="card-body"><canvas id="myPieChart" width="100%" height="50"></canvas></div>
-                                <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-                            </div>
-                        </div>
+                        <button class="btn btn-primary col-2 mb-2" style="margin-left: 20px;">Add Medicine</button>
                     </div>
-                </div>
             </main>
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid px-4">
