@@ -177,8 +177,8 @@
                                                 <label for="SelectMedicin">Choose a midicin</label>
                                                     <select id="select-midi" name="SelectMedicin" placeholder="midicin" >
                                                     <option value="">Select a midicine...</option>
-                                                    <?php foreach($Midi as $Midi) :?>
-                                                    <option value="<?php echo $Midi['med_id']; ?>"><?php echo $Midi['med_name']; ?></option>
+                                                    <?php foreach($Midi as $M) :?>
+                                                    <option value="<?php echo $M['med_id']; ?>"><?php echo $M['med_name']; ?></option>
                                                     <?php endforeach; ?> 
                                                     </select>
                                                    

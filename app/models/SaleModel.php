@@ -57,20 +57,8 @@ class SaleModel{
 
     }
     public function UpdateSale($Client,$Midi,$date,$id){
-        $get_client_id  = "SELECT `user_id` FROM `user` WHERE `full_name`='$Client' ";
-        $c_result = $this->db->query($get_client_id);
-        $c_row = $c_result->fetch(PDO::FETCH_ASSOC);
-        $client_id = $c_row['user_id'];
-        
-        $get_med_id  = "SELECT `med_id` FROM `medicine` WHERE `med_name`='$Midi' ";
-        $m_result = $this->db->query($get_med_id);
-        $m_row = $m_result->fetch(PDO::FETCH_ASSOC);
-        $med_id = $m_row['med_id'];
 
-     
-      
-
-        $req  = "UPDATE `sale` SET `user_id`='$client_id',`med_id`='$med_id',`sale_date`='$date' WHERE `sale_number`='$id'";
+        $req  = "UPDATE `sale` SET `user_id`='$Client',`med_id`='$Midi',`sale_date`='$date' WHERE `sale_number`='$id'";
         
         $result = $this->db->exec($req);
 

@@ -80,16 +80,15 @@ function addNewSale(){
         xhr.send(jsonData);
     }
 
-    function  GetFormData(name,med,selNum,date){
-
-        document.getElementById("c-option").value=name;
+    function  GetFormData(u_id,m_id,name,med,selNum,date){
+            
+          
+        document.getElementById("c-option").value=u_id;
         document.getElementById("c-option").innerHTML=name;
-        document.getElementById("m-option").value=med;
+        document.getElementById("m-option").value=m_id;
         document.getElementById("m-option").innerHTML=med;
         document.getElementById("upDate").value=date;
         document.getElementById("myHiddenField").value=selNum;
-        
-
 
      }
      function sendForm(){

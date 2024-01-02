@@ -1,3 +1,5 @@
+<!-- 3lach var_dump($Aff);  f ay blasa f page ktkon fiha data mes f west lmodal ktwli null -->
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -19,6 +21,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
     </head>
     <body class="sb-nav-fixed">
+
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
             <a class="navbar-brand ps-3" href="index.html">Start Bootstrap</a>
@@ -116,6 +119,7 @@
             </div>
             <div id="layoutSidenav_content">
                 <main>
+ 
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">SALES</h1>
                         <ol class="breadcrumb mb-4">
@@ -148,16 +152,15 @@
                                     </thead>
 
                                     <tbody>
-                                        <?php foreach($Aff as $Aff): ?>
+                                        <?php foreach($Aff as $A): ?>
                                         <tr>
-                                            <td><?php echo $Aff['full_name'] ;   ?> </td>
-                                            <td><?php echo $Aff['med_name'] ;    ?> </td>
-                                            <td><?php echo $Aff['sale_number']; ?> </td>
-                                            <td><?php echo $Aff['sale_date'] ;   ?> </td>
+                                            <td><?php echo $A['full_name'] ;   ?> </td>
+                                            <td><?php echo $A['med_name'] ;    ?> </td>
+                                            <td><?php echo $A['sale_number']; ?> </td>
+                                            <td><?php echo $A['sale_date'] ;   ?> </td>
                                             <td><a href="">d</a></td>
                                             <td>
-                                                <button type="button" class="btn btn-primary " onclick="GetFormData('<?php echo $Aff['full_name'] ?>', '<?php echo $Aff['med_name']  ?>','<?php echo $Aff['sale_number']; ?>' ,  ' <?php echo $Aff['sale_date'] ; ?>')" 
-                                                                                                                    data-toggle="modal" data-target="#exampleModalCenter">
+                                                <button type="button" class="btn btn-primary " onclick="GetFormData(`<?php echo $A['user_id'] ?>`,`<?php echo $A['med_id'] ?>`,`<?php echo $A['full_name'] ?>`, '<?php echo $A['med_name']  ?>','<?php echo $A['sale_number']; ?>' ,  '<?php echo $A['sale_date'] ; ?>')" data-toggle="modal" data-target="#exampleModalCenter">
                                                 update                              
                                                                                     
                                                 </button>
@@ -184,13 +187,13 @@
                 </footer>
             </div>
         </div>
-
+<!-- --------------------------- -->
         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close d-flex align-items-center justify-content-center" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true" class="ion-ios-close"></span>
+          <span aria-hidden="true" class="ion-ios-close">+</span>
         </button>
       </div>
       <div class="row no-gutters">
@@ -203,10 +206,10 @@
               <div class="d-flex tabs">
                 <ul class="nav nav-tabs border-0">
                   <li class="nav-item">
-                    <a class="nav-link active" data-toggle="tab" href="#signin">Update Sale1</a>
+                    <a class="nav-link active" data-toggle="tab" href="#signin">Update Sale</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#signup">Update Sale2</a>
+                    <a class="nav-link" data-toggle="tab" href="#signup">Update Sale</a>
                   </li>
                 </ul>
               </div>
@@ -219,32 +222,42 @@
                     <div  class="form-group mb-3">
                     <label for="SelectClient"  class="label">Choose a client</label>
                     <select  class="form-control" name="SelectClient" id="c-select" placeholder=" client" >
-                        <option value=""  id="c-option" style="background-color:#2b2b28;">Select a state...</option>
-                        <option value="AL" style="background-color:#2b2b28;">Alabama</option>
+                        <option value=""  id="c-option" style="background-color:#2b2b28;"></option>
+                        <?php foreach($Users as $a): ?>
+                        <option value="<?php echo $a['user_id'] ?>" style="background-color:#2b2b28;"><?php echo $a['full_name'] ?></option>
+                        <?php endforeach; ?>
 
+                      
                     </select>
+                    
                         </div>
 
                       <div  class="form-group mb-3">
                         <label for="SelectMIdicine"  class="label">Choose a midicine</label>
                         <select  class="form-control" id="m-select" name="SelectMIdicine"  placeholder=" midicine" >
                         <option value=""  id="m-option" style="background-color:#2b2b28;"></option>
-                        <option value="AL" style="background-color:#2b2b28;">Alabama</option>
-
+                        <?php foreach($Midi as $m): ?>
+                        <option value="<?php echo $m['med_id'] ?>" style="background-color:#2b2b28;"><?php echo $m['med_name'] ?></option>
+                  
+                        <?php endforeach; ?>
                     </select>
                         </div>
                         <div class="form-group mb-3">
-                        <label class="label" for="password">DATE</label>
-                        <input type="text"  id ="upDate"class="datepicker form-control" value="">
+                        <label class="label" for="upDate">DATE</label>
+                        <input type="text" name="upDate" id ="upDate" class="datepicker form-control" value="">
 
                       </div>
                         <!-- Hidden input  -->
                         <input type="hidden" id="myHiddenField" >
-
+ 
                       <div class="form-group">
                         <button  onclick="sendForm()" class="form-control btn btn-primary rounded  px-3">Save</button>
                       </div>
-                                        </div>
+                       </div>
+                       <?php 
+
+
+                ?>
                 </div>
                 </div>
               </div>

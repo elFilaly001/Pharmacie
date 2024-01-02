@@ -41,6 +41,10 @@ class SaleController {
             if(!$Aff){
                 print_r($addSall->error);
             }
+           
+        $Users = $affSall->getUsers();
+        $Midi = $affSall->getMidicin();
+
             require __DIR__ . "/../../views/sales.php";
 
         }
