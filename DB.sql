@@ -7,8 +7,8 @@ USE PHARMACY;
 CREATE TABLE user (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     full_name VARCHAR(50),
-    email VARCHAR(50) ,
-    email VARCHAR(50) ,
+
+    email VARCHAR(50),
     pwd VARCHAR(255),
     user_role ENUM('admin', 'patient'), 
     CONSTRAINT user_role_ck CHECK (user_role IN ('admin', 'patient'))

@@ -2,6 +2,7 @@
 
 
 namespace App\Models;
+
 use App\Models\Database;
 use PDO;
 class GetData{
@@ -27,11 +28,7 @@ class GetData{
         $result = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
-        
-
 
 
 }
-
-
 ?>

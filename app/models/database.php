@@ -6,7 +6,7 @@ require_once __DIR__ . '../../config/config.php';
 
 use PDO;
 
-class Database
+final class Database
 {
     private static $instance;
     private $PDO;
@@ -25,6 +25,8 @@ class Database
 
     public static function getInstance()
     {
+        /*"if propertier instance is empty creaate a new object else return the intance "*/
+
         if (!self::$instance) {
             self::$instance = new self();
         }

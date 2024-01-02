@@ -10,6 +10,7 @@ class router
     {
         $this->routes["get"][$uri] = $callback;
     }
+
     public function post($uri, $callback)
     {
         $this->routes["post"][$uri] = $callback;
