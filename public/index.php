@@ -39,5 +39,12 @@ $route->post("/add_med", function () {
 $route->get("/meds/get", function () {
     HomeController::get_Meds();
 });
+$route->get("/med/get", function () {
+    HomeController::get_Med();
+});
+$route->post("/medUpd", function () {
+    HomeController::post_Upd_Med();
+});
+
 
 $route->dispatch($uri, $method);

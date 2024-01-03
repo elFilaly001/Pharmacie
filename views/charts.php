@@ -196,6 +196,7 @@
                     </div>
                     <form id="AddForm" style="display: none;" enctype="multipart/form-data">
                         <div class="mb-3">
+                            <input type="hidden" class="form-control" id="med_idInp" name="med_id">
                             <label for="med_name" class="form-label">Name</label>
                             <input type="text" class="form-control" id="med_name" name="med_name" required>
                         </div>
@@ -213,10 +214,9 @@
                         </div>
                         <div class="mb-3">
                             <label for="med_price" class="form-label">Image</label>
-                            <input type="file" class="form-control" id="med_img" name="med_img" accept=".jpg , .jpeg , .png" required>
+                            <input type="file" class="form-control" id="med_img" name="med_img" accept=".jpg , .jpeg , .png">
                         </div>
-
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary submit" id="">Submit</button>
                     </form>
             </main>
             <footer class="py-4 bg-light mt-auto">

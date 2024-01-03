@@ -37,4 +37,16 @@ class HomeController
         $medObj = new MedController();
         $medObj->GetAllMeds();
     }
+    public static function get_Med()
+    {
+        require __DIR__ . "/../../app/controller/MedController.php";
+        $medObj = new MedController();
+        $medObj->findMedById();
+    }
+    public static function post_Upd_Med()
+    {
+        require __DIR__ . "/../../app/controller/MedController.php";
+        $medObj = new MedController();
+        $medObj->updateMed();
+    }
 }
