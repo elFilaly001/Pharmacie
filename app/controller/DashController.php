@@ -1,12 +1,15 @@
 <?php
 
 namespace App\controller;
+
 use App\Models\SaleModel;
 
 
-class DashController {
-    public static function getdata() {
-     
+class DashController
+{
+    public static function getdata()
+    {
+
 
         $Data  = new SaleModel;
         $Users = $Data->getUsers();
@@ -14,6 +17,4 @@ class DashController {
 
         require __DIR__ . "/../../views/dashboard.php";
     }
-
-
 }

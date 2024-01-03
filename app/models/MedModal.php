@@ -25,6 +25,18 @@ class MedModal
         }
     }
 
+    public function getLastMedid()
+    {
+        try {
+            $sql = "select max(med_id) as last_id from medicine";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo "error : " . $e->getMessage();
+        }
+    }
+
     public function AddMed($MedName, $type, $description, $price, $img)
     {
         $sql = "insert into medicine values ( NULL , ? , ? , ? , ? , ?)";

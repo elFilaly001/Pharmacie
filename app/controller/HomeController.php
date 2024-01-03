@@ -24,4 +24,17 @@ class HomeController
     {
         require __DIR__ . "/../../views/charts.php";
     }
+    public static function post_Med()
+    {
+        require __DIR__ . "/../../app/controller/MedController.php";
+        $medObj = new MedController();
+        $medObj->addMed();
+    }
+
+    public static function get_Meds()
+    {
+        require __DIR__ . "/../../app/controller/MedController.php";
+        $medObj = new MedController();
+        $medObj->GetAllMeds();
+    }
 }

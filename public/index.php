@@ -33,5 +33,11 @@ $route->get("/table", function () {
 $route->get("/meds", function () {
     HomeController::meds();
 });
+$route->post("/add_med", function () {
+    HomeController::post_Med();
+});
+$route->get("/meds/get", function () {
+    HomeController::get_Meds();
+});
 
 $route->dispatch($uri, $method);

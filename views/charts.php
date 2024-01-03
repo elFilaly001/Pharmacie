@@ -192,8 +192,32 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="btn btn-primary col-2 mb-2" style="margin-left: 20px;">Add Medicine</button>
+                        <button class="btn btn-primary col-2 mb-2" id="med_add_btn" style="margin-left: 20px;">Add Medicine</button>
                     </div>
+                    <form id="AddForm" style="display: none;" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="med_name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="med_name" name="med_name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="med_type" class="form-label">Type</label>
+                            <input type="text" class="form-control" id="med_type" name="med_type" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="med_description" class="form-label">Description</label>
+                            <input type="text" class="form-control" id="med_description" name="med_description" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="med_price" class="form-label">Price</label>
+                            <input type="number" class="form-control" id="med_price" name="med_price" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="med_price" class="form-label">Image</label>
+                            <input type="file" class="form-control" id="med_img" name="med_img" accept=".jpg , .jpeg , .png" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
             </main>
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid px-4">
@@ -215,6 +239,8 @@
     <script src="assets/js/chart-area-demo.js"></script>
     <script src="assets/js/chart-bar-demo.js"></script>
     <script src="assets/js/chart-pie-demo.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="assets/js/med.js"></script>
 </body>
 
 </html>
