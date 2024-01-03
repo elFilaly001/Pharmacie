@@ -88,8 +88,9 @@ function addNewSale() {
 
     let user = document.getElementById('userId').value
    let name = document.getElementById('fullName').value
-
  }*/
+
+
 // $ = document.getelementByid.
 // ready : event listener => whene load a data do this
  $(document).ready(function (){
