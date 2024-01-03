@@ -2,11 +2,8 @@
 
 namespace App\Models;
 
-// require_once __DIR__ . '../../config/config.php';
-define('DB_HOST', 'localhost');
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD', '');
-define('DB_NAME', 'PHARMACY');
+require_once __DIR__ . '/../../config/config.php';
+
 use PDO;
 
 final class Database
@@ -28,7 +25,7 @@ final class Database
 
     public static function getInstance()
     {
-        /*"if propertier instance is empty creaate a new object else return the intance "*/
+        /*"if propertier instance is empty creaate a new object else return the instance "*/
 
         if (!self::$instance) {
             self::$instance = new self();

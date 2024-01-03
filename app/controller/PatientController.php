@@ -8,7 +8,7 @@ class PatientController
 {
 
   public static function addPatientEnMagasin(){
-        $fullName = $_POST['name_patient'];
+      $fullName = $_POST['name_patient'];
       $patient = new Patient();
       $patient->setFullName($fullName);
       $patient->addPatientMagasin();
@@ -22,8 +22,12 @@ class PatientController
       header("Location: /dash");
    }
 
-
-
-
-
+   // update a patient en magazine using ajax.
+    public static function updatePatientEnMagasin()
+    {
+        $updatePatient = new Patient();
+        $fullname = $_POST['fullName'];
+        $userid = $_POST['userid'];
+        $updatePatient->updatepatient($userid, $fullname);
+    }
 }
