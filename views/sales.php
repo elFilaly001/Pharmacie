@@ -165,13 +165,29 @@
                                         </td>
                                             <td>
                                                 <button type="button" class="btn btn-primary update-btn" onclick="GetFormData(`<?php echo $A['user_id'] ?>`,`<?php echo $A['med_id'] ?>`,`<?php echo $A['full_name'] ?>`, '<?php echo $A['med_name']  ?>','<?php echo $A['sale_number']; ?>' ,  '<?php echo $A['sale_date'] ; ?>')" data-toggle="modal" data-target="#exampleModalCenter">
-                                                update                              
-                                                                                    
+                                                update                                                             
                                                 </button>
-                                                
-
                                             </td>
                                         </tr>
+                                        <!-- Modal -->
+                                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="top:300px !important;width:450px !important; left:40% !important;">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content" style="background-color:#2b2b28 !important;">
+                                                    <div class="modal-header">
+                                                    
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        are you sure you want to delete this sale 
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                        
+                                                        <a href="/deletesale?saleid=<?php echo $A['sale_number']; ?>"><button type="button" class="btn " style ="background: #e3b04b !important;">contunie</button></a>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                                </div>
                                         <?php endforeach; ?>
                                     </tbody>
                                 </table>
@@ -279,25 +295,7 @@
 <!-- Button trigger modal -->
 
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="top:300px !important;width:450px !important; left:40% !important;">
-  <div class="modal-dialog">
-    <div class="modal-content" style="background-color:#2b2b28 !important;">
-      <div class="modal-header">
-       
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        are you sure you want to delete this sale 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        
-        <a href="/deletesale?saleid=<?php echo $A['sale_number']; ?>"><button type="button" class="btn " style ="background: #e3b04b !important;">contunie</button></a>
-      </div>
-    </div>
-  </div>
-</div>
+
 
 
 
