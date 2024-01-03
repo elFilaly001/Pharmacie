@@ -81,7 +81,8 @@ function addNewSale(){
     }
 
     function  GetFormData(u_id,m_id,name,med,selNum,date){
-            
+            console.log(u_id);
+            console.log(m_id);
           
         document.getElementById("c-option").value=u_id;
         document.getElementById("c-option").innerHTML=name;

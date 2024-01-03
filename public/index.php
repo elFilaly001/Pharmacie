@@ -36,5 +36,8 @@ $route->post("/updatesale", function () {
 $route->get("/sales", function () {
     SaleController::affsale();
 });
+$route->get("/deletesale", function () {
+    SaleController::deletesale();
+});
 
 $route->dispatch($uri, $method);

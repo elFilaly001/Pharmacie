@@ -8220,8 +8220,15 @@ textarea.form-control {
   font-size: 15px; }
   .btn:hover, .btn:active, .btn:focus {
     outline: none; }
+    .update-btn{
+      background: #e3b04b !important;
+    }
+    .d-btn{
+      background: #a71d2a !important;
+      
+    }
   .btn.btn-primary {
-    background: #e3b04b !important;
+ 
     border: 1px solid #e3b04b !important;
     color: #fff !important; }
     .btn.btn-primary:hover {

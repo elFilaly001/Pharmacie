@@ -69,6 +69,18 @@ class SaleModel{
             return $result;
         }
     }
+    public function DeleteSale($id){
+        $req  = " DELETE FROM sale WHERE `sale`.`sale_number` = '$id' ";
+
+        $result = $this->db->exec($req);
+
+        if ($result === false) {
+            $this->error = $this->db->errorInfo();
+
+        } else {
+            return $result;
+        }
+    }
         
 
 

@@ -73,4 +73,20 @@ class SaleController {
                 }
           }
         }
+        public static function deletesale(){
+            if($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['saleid'])){
+                 
+                $id = $_GET['saleid'];
+                $delete_sale = new SaleModel;
+
+                if(!($delete_sale->DeleteSale($id))){
+                    print_r($addSall->error);
+                }else{
+                    header("Location: /sales");
+                    exit();
+                }
+            }
+
+        }
+
 }
