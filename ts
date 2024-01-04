@@ -10,9 +10,6 @@
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="assets/styles/css/styles.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
-
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.5/dist/sweetalert2.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.5/dist/sweetalert2.all.min.js"></script>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -50,18 +47,18 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
-                            <div class="sb-sidenav-menu-heading">Admin</div>
+                            <div class="sb-sidenav-menu-heading">Interface</div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Admin
+                                Layouts
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <!-- <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="layout-static.html">Static Navigation</a>
                                     <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
                                 </nav>
-                            </div> -->
+                            </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                                 Pages
@@ -115,7 +112,7 @@
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">Dashboard</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active" >Dashboard</li>
+                            <li class="breadcrumb-item active">Dashboard</li>
                         </ol>
                         <div class="row">
                             <div class="col-xl-3 col-md-6">
@@ -161,31 +158,34 @@
                                 <div class=" mb-4 d-flex gap-1">
                                     <div class="card-header" style="width: 100% !important;margin-bottom: 0 !important;">
                                         <h3>Add New Sale</h3>
-                                        <form >
+           
+                                        <form action="/sale" method="post">
+
+
                                             <div class="d-flex gap-5 align-items-center">
                                                 <div  style ="width :26%">
                                                 <label for="SelectUser">Choose a client</label>
-                                                    <select id="select-client" name="SelectUser" placeholder=" client" >
+                                                    <select id="select-state" name="SelectUser" placeholder=" client" >
                                                             <option value="">Select a client...</option>
                                                             <?php foreach($Users as $client) :?>
-                                                            <option value="<?php echo $client['user_id']; ?>"><?php echo $client['full_name']; ?></option>
+                                                            <option value="<?php echo $client['full_name']; ?>"><?php echo $client['full_name']; ?></option>
                                                             <?php endforeach; ?> 
                                                     </select>
                                                 </div>
 
                                                 <div style ="width :26%">
                                                 <label for="SelectMedicin">Choose a midicin</label>
-                                                    <select id="select-midi" name="SelectMedicin" placeholder="midicin" >
+                                                    <select id="select-state" name="SelectMedicin" placeholder="midicin" >
                                                     <option value="">Select a midicine...</option>
                                                     <?php foreach($Midi as $Midi) :?>
-                                                    <option value="<?php echo $Midi['med_id']; ?>"><?php echo $Midi['med_name']; ?></option>
+                                                    <option value="<?php echo $Midi['med_name']; ?>"><?php echo $Midi['med_name']; ?></option>
                                                     <?php endforeach; ?> 
                                                     </select>
                                                    
                                                 </div>
 
                                                 <div >
-                                                <button type="button" onclick="addNewSale()"  style="width: 125% !important;" class="btn btn-outline-success">save</button>
+                                                <input type="submit" value ="save"  name="add-new-m-sale" style="width: 125% !important;" class="btn btn-outline-success">
                                                 </div>
 
                                             </div>
@@ -194,10 +194,11 @@
                                 </div>
                             </div>
 
-                        <div class="col-xl-6">
+                    <div class="col-xl-6">
                             <div class="card-header" style="width: 100% !important;margin-bottom: 0 !important;">
                                 <h3>Add New Client</h3>
                                         <form action="">
+
                                             <div class="d-flex gap-5 align-items-center">
 
                                                 <div >
@@ -212,7 +213,8 @@
                                             </div>
                                         </form>
                             </div>
-                         </div>
+                    
+                    </div>
 
                         <div class="card mb-4">
                             <div class="card-header">

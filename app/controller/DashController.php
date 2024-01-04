@@ -1,0 +1,22 @@
+<?php
+
+namespace App\controller;
+use App\Models\SaleModel;
+
+
+class DashController {
+    public static function getdata() {
+     
+
+        $Data  = new SaleModel;
+        $Users = $Data->getUsers();
+        $Midi = $Data->getMidicin();
+
+        require __DIR__ . "/../../views/dashboard.php";
+    }
+    public static function Admin()
+    {
+        require __DIR__ . "/../../views/Admin.php";
+
+    }
+}
