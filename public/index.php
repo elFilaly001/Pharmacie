@@ -32,7 +32,7 @@ $route->get("/dash", function () {
     HomeController::dashboard();
 });
 
-$route->post("/patient/en-magasin", function (){
+$route->post("/patient/en-magasin", function () {
     PatientController::addPatientEnMagasin();
     HomeController::dashboard();
 });
@@ -40,7 +40,7 @@ $route->get("/table", function () {
     HomeController::tables();
 });
 
-$route->get("/patient/delete-patient", function (){
+$route->get("/patient/delete-patient", function () {
     PatientController::deletePatientmagasin();
 });
 
@@ -59,9 +59,14 @@ $route->get("/med/get", function () {
 $route->post("/medUpd", function () {
     HomeController::post_Upd_Med();
 });
+$route->post("/lastMed", function () {
+    HomeController::post_Last_Id();
+});
+$route->get("/DeltMed", function () {
+    HomeController::DelMed();
+});
 
-
-$route->post("/patient/updatePatient", function(){
+$route->post("/patient/updatePatient", function () {
     PatientController::updatePatientEnMagasin();
 });
 

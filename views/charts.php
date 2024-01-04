@@ -151,11 +151,11 @@
                                         <table id="datatablesSimple" class="datatable-table">
                                             <thead>
                                                 <tr>
+                                                    <th data-sortable="true" style="width: 18.204911092294665%;"><button class="datatable-sorter">img</button></th>
                                                     <th data-sortable="true" style="width: 17.358171041490262%;"><button class="datatable-sorter">Med Name</button></th>
                                                     <th data-sortable="true" style="width: 23.539373412362405%;"><button class="datatable-sorter">Type</button></th>
                                                     <th data-sortable="true" style="width: 15.918712955122777%;"><button class="datatable-sorter">description</button></th>
                                                     <th data-sortable="true" style="width: 10.584250635055039%;"><button class="datatable-sorter">price</button></th>
-                                                    <th data-sortable="true" style="width: 18.204911092294665%;"><button class="datatable-sorter">img</button></th>
                                                     <th data-sortable="true" style="width: 18.204911092294665%;"><button class="datatable-sorter">action</button></th>
                                                 </tr>
                                             </thead>

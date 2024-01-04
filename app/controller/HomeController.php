@@ -46,11 +46,23 @@ class HomeController
         require __DIR__ . "/../../app/controller/MedController.php";
         $medObj = new MedController();
         $medObj->updateMed();
-
-    public static function dashboard(){
+    }
+    public static function post_Last_Id()
+    {
+        require __DIR__ . "/../../app/controller/MedController.php";
+        $medObj = new MedController();
+        $medObj->getLastId();
+    }
+    public static function DelMed()
+    {
+        require __DIR__ . "/../../app/controller/MedController.php";
+        $medObj = new MedController();
+        $medObj->DeleteMed();
+    }
+    public static function dashboard()
+    {
+        require __DIR__ . "/../../views/dashboard.php";
         $patientmodel = new Patient();
         $patientMagasins = $patientmodel->getPatientEnMagasin();
-        require __DIR__. "/../../views/dashboard.php";
-
     }
 }
