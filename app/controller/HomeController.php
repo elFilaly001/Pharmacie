@@ -48,11 +48,22 @@ class HomeController
         $medObj->updateMed();
     }
 
+    public static function post_Last_Id()
+    {
+        require __DIR__ . "/../../app/controller/MedController.php";
+        $medObj = new MedController();
+        $medObj->getLastId();
+    }
+    public static function DelMed()
+    {
+        require __DIR__ . "/../../app/controller/MedController.php";
+        $medObj = new MedController();
+        $medObj->DeleteMed();
+    }
+  
     public static function dashboard(){
         $patientmodel = new Patient();
         $patientMagasins = $patientmodel->getPatientEnMagasin();
-        require __DIR__. "/../../views/dashboard.php";
-
     }
 
 

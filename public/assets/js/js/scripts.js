@@ -25,7 +25,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     });
   }
 });
-
+// M'barel part
 $(document).ready(function () {
   $("select").selectize({
     sortField: "text",
@@ -77,22 +77,21 @@ function addNewSale() {
   xhr.send(jsonData);
 }
 
- function getPatient(userId, fullNAme){
+// khalid part
 
-  document.getElementById('userId').value = userId
-   document.getElementById('fullName').value = fullNAme
-
- }
-
- /*function setPatient(userId, fullNAme){
+function getPatient(userId, fullNAme) {
+  document.getElementById("userId").value = userId;
+  document.getElementById("fullName").value = fullNAme;
+}
+/*function setPatient(userId, fullNAme){
 
     let user = document.getElementById('userId').value
    let name = document.getElementById('fullName').value
  }*/
 
-
 // $ = document.getelementByid.
 // ready : event listener => whene load a data do this
+
  $(document).ready(function (){
    $("#saveUpdate").click(function (){
 
@@ -116,5 +115,3 @@ function addNewSale() {
    })
  })
 
-
- 

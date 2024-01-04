@@ -25,10 +25,10 @@ class MedModal
         }
     }
 
-    public function getLastMedid()
+    public function getLastMedId()
     {
         try {
-            $sql = "select max(med_id) as last_id from medicine";
+            $sql = "select * from medicine order by med_id desc limit 1";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
             return $stmt->fetch(PDO::FETCH_ASSOC);
@@ -59,7 +59,6 @@ class MedModal
             $stmt->bindParam(4, $price);
             $stmt->bindParam(5, $img);
             $stmt->bindParam(6, $id);
-            echo "3aa";
             return $stmt->execute();
         } catch (PDOException $e) {
             echo "error : " . $e->getMessage();

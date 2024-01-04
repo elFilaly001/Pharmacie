@@ -24,11 +24,9 @@ class MedController
 
     public function DeleteMed()
     {
-        $id = $_POST["med_id"];
+        $id = $_GET["delid"];
         $med = new MedModal();
-        if (isset($_POST['delete'])) {
-            $med->DeleteMed($id);
-        }
+        $med->DeleteMed($id);
     }
 
     public function addMed()
@@ -44,7 +42,7 @@ class MedController
         $image_type = $_FILES['med_img']['type'];
         $image_size = $_FILES['med_img']['size'];
         $image_error = $_FILES['med_img']['error'];
-        $allowed = array('jpg', 'png', 'jif');
+        $allowed = array('jpg', 'png', 'jif', 'jpeg');
         $image = explode('.', $image_name);
         $image_ext = strtolower(end($image));
         if ($image_error == 4) {
@@ -54,14 +52,25 @@ class MedController
                 $MedImage = uniqid() . $image_name;
                 move_uploaded_file($image_temp, $_SERVER['DOCUMENT_ROOT'] . '/assets/img2/' . $MedImage);
                 $med->AddMed($name, $type, $desc, $price, $MedImage);
-                $last_id = $med->getLastMedid()['last_id'];
-                echo $last_id;
+                $last_id = $med->getLastMedId();
+                $result = json_encode($last_id);
+                header("Content-type: application/json");
+                echo $result;
             } else {
                 echo "file is not valid you need this extention ('jpg' , 'png' , 'jpeg')";
             }
         } else {
             echo "size to file is too heigh to upload";
         }
+    }
+
+    public function getLastId()
+    {
+        $med = new MedModal();
+        $med->getLastMedId();
+        $res = json_encode($med);
+        header("Content-type: application/json");
+        echo $res;
     }
 
     public function updateMed()

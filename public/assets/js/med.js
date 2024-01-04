@@ -11,9 +11,9 @@ $(document).ready(() => {
   const btn = document.querySelector(".submit");
 
   const generateTr = (name, type, description, price, img, id = "") => {
-    return `<tr>
+    return `<tr >
     <td>
-    <input type="hidden" name="med_id" id="id" value="${id}">
+    <input type="hidden" class="med_id" name="med_id" id="id" value="${id}">
     <img class="postcard__img" src="assets/img2/${img}" style="width: 50px; height: 50px; border-radius: 50%;" alt="Image Title" />
     </td>
     <td class="text-left align-middle" id="name">${name}</td>
@@ -21,35 +21,16 @@ $(document).ready(() => {
     <td class="text-left align-middle" id="desc">${description}</td>
     <td class="text-left align-middle" id="price">${price}</td>
     <td class="d-flex justify-content-around">
-    <button type="submit" id="update_med" data-id="${id}" class="btn btn-success">
+    <button type="submit" id="update_med" data-id="${id}" class="btn btn-success" onclick="clicked(event)">
     <i class="fa-solid fa-pen-to-square"></i>
     </button>
-    <button type="submit" id="delete_med_${id}" class="btn btn-danger">
+    <button type="submit" id="delete_med_${id}" class="btn btn-danger" onclick="delclicked(event)">
     <i class="fa-solid fa-trash-can"></i>
     </button>
     </td>
     </tr>
     `;
   };
-
-  //   $.get("/meds/get", function (data, status) {
-  //     if (data.error) {
-  //       console.error(data.error);
-  //     } else {
-  //       data.forEach((med) => {
-  //         $tbody.append(
-  //           generateTr(
-  //             med.med_name,
-  //             med.type,
-  //             med.description,
-  //             med.price,
-  //             med.img,
-  //             med.med_id
-  //           )
-  //         );
-  //       });
-  //     }
-  //   });
 
   // hide/show med form
   $btnAdd.click(() => {
@@ -92,11 +73,20 @@ $(document).ready(() => {
         data: data,
         contentType: false,
         processData: false,
-        success: function () {
+        success: function (result) {
           $tbody.append(
-            generateTr($name, $type, $description, $price, $fileInput.name)
+            generateTr(
+              result.med_name,
+              result.type,
+              result.description,
+              result.price,
+              result.img,
+              result.med_id
+            )
           );
-          alert("Med Added Successfully");
+          // alert("Med Added Successfully");
+
+          console.log(result.img);
         },
         error: function (error) {
           console.error("Error adding medication:", error);
@@ -119,20 +109,16 @@ $(document).ready(() => {
       const response = await fetch("/medUpd", {
         method: "POST",
         headers: {
-          //ewqeda
+          //hhhhhhhh
         },
         body: data,
       });
-      console.log(response.text());
-      console.log(id);
+
+      alert("Med updated Successfully");
 
       if (!response.ok) {
         throw new Error("Network response was not ok.");
       }
-
-      // You can handle the response data here if needed
-      // For example:
-      // const responseData = await response.json();
 
       alert("Med updated Successfully");
     } catch (error) {
@@ -154,9 +140,10 @@ $(document).ready(() => {
       data.forEach((med) => {
         TbRow += `<tr>
           <td>
+          <input type="hidden" class="med_id" name="med_id" id="id" value="${med.id}">
           <img class="postcard__img" src="assets/img2/${med.img}" style="width: 50px; height: 50px; border-radius: 50%;" alt="Image Title" />
           </td>
-          <td class="text-left align-middle" id="name">${med.med_name}</td>
+          <td class="text-left align-middle " id="name">${med.med_name}</td>
           <td class="text-left align-middle" id="type">${med.type}</td>
           <td class="text-left align-middle" id="desc">${med.description}</td>
           <td class="text-left align-middle" id="price">${med.price}</td>
@@ -164,13 +151,12 @@ $(document).ready(() => {
           <button type="submit" id="update_med" data-id="${med.med_id}" class="btn btn-success" onclick="clicked(event)">
           <i class="fa-solid fa-pen-to-square"></i>
           </button>
-          <button type="submit" id="delete_med_${med.med_id}" class="btn btn-danger">
+          <button type="submit" id="delete_med_${med.med_id}" data-id="${med.med_id}" class="btn btn-danger" onclick="delclicked(event)">
           <i class="fa-solid fa-trash-can"></i>
           </button>
           </td>
           </tr>
           `;
-
         $tb.html(TbRow);
       });
     })
@@ -178,10 +164,10 @@ $(document).ready(() => {
       console.error("There was a problem with the fetch operation:", error);
     });
 });
-
+console.log(document.getElementById("id"));
 //get the info update button
 function clicked(e) {
-  let id = e.target.dataset.id;
+  let id = e.currentTarget.dataset.id;
   const $form = $("#AddForm");
   const idInp = document.getElementById("med_idInp");
   const nameInp = document.getElementById("med_name");
@@ -206,5 +192,21 @@ function clicked(e) {
       typeInp.value = data.type;
       descInp.value = data.description;
       priceInp.value = data.price;
+    });
+}
+function delclicked(e) {
+  let id = e.currentTarget.dataset.id;
+  let tr = e.currentTarget.closest("tr");
+  console.log(id);
+  console.log(tr);
+  fetch(`/DeltMed?delid=${id}`, {})
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error("Network response was not ok.");
+      }
+    })
+    .then(() => {
+      tr.remove();
+      alert("Deleted Successfully");
     });
 }
