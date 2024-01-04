@@ -1,55 +1,137 @@
-CREATE DATABASE PHARMACY;
-USE PHARMACY;
 
-CREATE TABLE user (
-    user_id INT AUTO_INCREMENT PRIMARY KEY,
-    full_name VARCHAR(50),
-    email VARCHAR(50) ,
-    pwd VARCHAR(255),
-    user_role ENUM('admin', 'patient'), 
-    CONSTRAINT user_role_ck CHECK (user_role IN ('admin', 'patient'))
-);
+CREATE DATABASE pharmacy;
+USE pharmacy;
 
-CREATE TABLE medicine (
-    med_id INT AUTO_INCREMENT PRIMARY KEY ,
-    med_name VARCHAR(50),
-    type VARCHAR(50),
-    description VARCHAR(500),
-    price FLOAT, 
-    img VARCHAR(255)
-);
+--
+-- Structure de la table `sale`
+--
 
-CREATE TABLE sale_raport (
-    sale_raport_id INT AUTO_INCREMENT PRIMARY KEY,
-    raport_number INT UNIQUE , 
-    description VARCHAR(500),
-    total FLOAT
-);
+CREATE TABLE `medicine` (
+  `med_id` int(11) NOT NULL,
+  `med_name` varchar(50) DEFAULT NULL,
+  `type` varchar(50) DEFAULT NULL,
+  `description` varchar(500) DEFAULT NULL,
+  `price` float DEFAULT NULL,
+  `img` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE sale (
-    sale_id INT AUTO_INCREMENT PRIMARY KEY , 
-    sale_number INT UNIQUE,
-    sale_date DATE, 
-    sale_plat ENUM('online', 'store'),
-    user_id INT,
-    med_id INT,
-    sale_report_id INT, -- this and 
-    CONSTRAINT sale_plat_ck CHECK (sale_plat IN ('online', 'store')),
-    CONSTRAINT sale_user_id_fk FOREIGN KEY (user_id) REFERENCES user(user_id) ON DELETE CASCADE ON UPDATE CASCADE ,
-    CONSTRAINT sale_med_id_fk FOREIGN KEY (med_id) REFERENCES medicine(med_id)  ON DELETE CASCADE ON UPDATE CASCADE,
-    -- this links is not logique bro 
-    CONSTRAINT sale_sale_raport_id_fk FOREIGN KEY (sale_report_id) REFERENCES sale_raport(sale_raport_id) ON DELETE CASCADE ON UPDATE CASCADE
-);
 
-CREATE TABLE stock_raport (
-    stock_raport_id INT AUTO_INCREMENT PRIMARY KEY,
-    raport_number INT UNIQUE,
-    description TEXT
-);
 
-CREATE TABLE stock (
-    stock_id INT AUTO_INCREMENT PRIMARY KEY,
-    qte_stock INT ,
-    stock_raport_id INT , 
-    CONSTRAINT stock_stock_raport_id_fk FOREIGN KEY (stock_raport_id) REFERENCES stock_raport(stock_raport_id)  ON DELETE CASCADE ON UPDATE CASCADE
-);
+--
+-- Structure de la table `sale`
+--
+
+CREATE TABLE `sale` (
+  `sale_id` int(11) NOT NULL,
+  `sale_number` varchar(255) DEFAULT NULL,
+  `sale_plat` enum('online','store') DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `med_id` int(11) DEFAULT NULL,
+  `sale_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ;
+
+
+
+--
+-- Structure de la table `stock`
+--
+
+CREATE TABLE `stock` (
+  `stock_id` int(11) NOT NULL,
+  `qte_stock` int(11) DEFAULT NULL,
+  `med_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `user`
+--
+
+CREATE TABLE `user` (
+  `user_id` int(11) NOT NULL,
+  `full_name` varchar(50) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `pwd` varchar(255) DEFAULT NULL,
+  `user_role` enum('admin','patient') DEFAULT NULL
+) ;
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `medicine`
+--
+ALTER TABLE `medicine`
+  ADD PRIMARY KEY (`med_id`);
+
+--
+-- Index pour la table `sale`
+--
+ALTER TABLE `sale`
+  ADD PRIMARY KEY (`sale_id`),
+  ADD UNIQUE KEY `sale_number` (`sale_number`),
+  ADD KEY `sale_user_id_fk` (`user_id`),
+  ADD KEY `sale_med_id_fk` (`med_id`);
+
+--
+-- Index pour la table `stock`
+--
+ALTER TABLE `stock`
+  ADD PRIMARY KEY (`stock_id`),
+  ADD KEY `md_constraint_st` (`med_id`);
+
+--
+-- Index pour la table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`user_id`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `medicine`
+--
+ALTER TABLE `medicine`
+  MODIFY `med_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT pour la table `sale`
+--
+ALTER TABLE `sale`
+  MODIFY `sale_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `stock`
+--
+ALTER TABLE `stock`
+  MODIFY `stock_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `user`
+--
+ALTER TABLE `user`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Contraintes pour les tables déchargées
+--
+
+--
+-- Contraintes pour la table `sale`
+--
+ALTER TABLE `sale`
+  ADD CONSTRAINT `sale_med_id_fk` FOREIGN KEY (`med_id`) REFERENCES `medicine` (`med_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `sale_user_id_fk` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Contraintes pour la table `stock`
+--
+ALTER TABLE `stock`
+  ADD CONSTRAINT `md_constraint_st` FOREIGN KEY (`med_id`) REFERENCES `medicine` (`med_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
+
+

@@ -36,6 +36,7 @@ class SaleModel{
             $this->error = $this->db->errorInfo();
 
         } else {
+            
             return $result;
         }
 
@@ -48,14 +49,25 @@ class SaleModel{
         $sql = "INSERT INTO sale ( sale_number,sale_plat, user_id, med_id) VALUES (  '$num' , 'store', $client,$midi)";
         $result = $this->db->exec($sql);
 
+
+
         if ($result === false) {
+
             $this->error = $this->db->errorInfo();
 
         } else {
-            return $result;
+            $stock_sql = "UPDATE stock SET qte_stock = qte_stock - 1 WHERE `med_id`=$midi";
+            $stock_sql_result = $this->db->exec($stock_sql);
+            if($stock_sql_result){
+                return $result;
+            }else{
+                $this-> DeleteSale($num);
+            }
+           
         }
 
     }
+
     public function UpdateSale($Client,$Midi,$date,$id){
 
         $req  = "UPDATE `sale` SET `user_id`='$Client',`med_id`='$Midi',`sale_date`='$date' WHERE `sale_number`='$id'";
@@ -66,6 +78,7 @@ class SaleModel{
             $this->error = $this->db->errorInfo();
 
         } else {
+
             return $result;
         }
     }
