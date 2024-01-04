@@ -1,6 +1,7 @@
 <?php
 
 namespace App\controller;
+use App\Models\MedModal;
 use App\Models\SaleModel;
 
 
@@ -30,12 +31,20 @@ class SaleController {
             if(!($addSall->addSale($Client, $Midi))){
                 print_r($addSall->error);
             }
-
-
         }
-
-       
     }
 
+    public static function exportPdf(){
 
+        if(isset($_POST['exportpdf'])){
+
+            $pdfcontent = new MedModal();
+            $displamedicament = $pdfcontent->ViewMeds();
+            $htmlobjet = new HtmlPdfController();
+            $html = $htmlobjet->exportstockPdf($displamedicament);
+            $dompdf = new DomPdfController();
+            $dompdf->export($html);
+        }
+
+    }
 }

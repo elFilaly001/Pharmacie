@@ -65,4 +65,8 @@ $route->post("/patient/updatePatient", function(){
     PatientController::updatePatientEnMagasin();
 });
 
+$route->post("/exportSales", function(){
+    SaleController::exportPdf();
+});
+
 $route->dispatch($uri, $method);

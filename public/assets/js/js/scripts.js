@@ -95,11 +95,10 @@ function addNewSale() {
 // ready : event listener => whene load a data do this
  $(document).ready(function (){
    $("#saveUpdate").click(function (){
-     // document.getElementById('userId').value
 
      let userid = $("#userId").val();
      let fullName = $("#fullName").val();
-     if (fullName != ""){
+     if (fullName !== ""){
        $.ajax({
           url: "/patient/updatePatient",
          method: "post",
@@ -108,7 +107,8 @@ function addNewSale() {
             fullName: fullName
          },
          success: function (respens){
-            $("#close-update").click();
+           console.log(respens);
+           $("#close-update").click();
            document.getElementById('continerPatient-' + userid).innerText = fullName;
          }
        })

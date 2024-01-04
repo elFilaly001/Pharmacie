@@ -46,6 +46,7 @@ class HomeController
         require __DIR__ . "/../../app/controller/MedController.php";
         $medObj = new MedController();
         $medObj->updateMed();
+    }
 
     public static function dashboard(){
         $patientmodel = new Patient();
@@ -53,4 +54,6 @@ class HomeController
         require __DIR__. "/../../views/dashboard.php";
 
     }
+
+
 }

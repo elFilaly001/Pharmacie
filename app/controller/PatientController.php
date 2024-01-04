@@ -29,5 +29,11 @@ class PatientController
         $fullname = $_POST['fullName'];
         $userid = $_POST['userid'];
         $updatePatient->updatepatient($userid, $fullname);
+        $var = $updatePatient->getPatientafterupdate($userid);
+        $p = json_encode($var);
+        header("Content-type: application/json");
+        echo $p;
     }
+
+
 }

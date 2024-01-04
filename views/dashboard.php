@@ -215,9 +215,13 @@
                                     </div>
                                 </div>
                             </form>
+                            <form action="/exportSales" method="post">
+                                <div class="modal-footer">
+                                    <button type="submit" name="exportpdf" class="btn btn-outline-primary" >Export Sales</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
-
                     <div class="card mb-4">
                         <div class="card-header">
                             <i class="fas fa-table me-1"></i>
@@ -228,7 +232,6 @@
                                 <thead>
                                 <tr>
                                     <th>FullName</th>
-                                    <th>Subscription Date</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
@@ -236,7 +239,6 @@
                                 <?php foreach($patientMagasins as $patient ):?>
                                     <tr>
                                         <td id="continerPatient-<?= $patient['user_id'] ?>" ><?=$patient['full_name']?></td>
-                                        <td><?=$patient['dateSubscription']?></td>
                                         <td>
                                             <a href="/patient/delete-patient?user_id=<?= $patient['user_id'] ?>" class="btn btn-danger">Delete</a>
                                             <button type="button" onclick="getPatient('<?php echo $patient['user_id'] ?>', '<?php echo $patient['full_name'] ?>')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Update</button>
