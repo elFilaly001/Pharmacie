@@ -18,6 +18,9 @@ class DashController {
     public static function Admin(){
         require __DIR__ . "/../../views/Admin.php";
     }
+    puplic static function login(){
+        require __DIR__ . "/../../views/login.php";
+    }
     
 
 }
