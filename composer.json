@@ -7,9 +7,11 @@
   },
   "authors": [
     {
-      "name": "El Filaly",
-      "email": "elfilalyabdeljalil@gmail.com"
+      "name": "khalid",
+      "email": "khalidgara8@gmail.com"
     }
   ],
-  "require": {}
+  "require": {
+    "ext-pdo": "*"
+  }
 }

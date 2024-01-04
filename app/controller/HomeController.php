@@ -2,6 +2,8 @@
 
 namespace App\controller;
 
+use App\models\Patient;
+
 class HomeController
 {
     public static function index()
@@ -11,10 +13,6 @@ class HomeController
     public static function shop()
     {
         require __DIR__ . "/../../views/shop.php";
-    }
-    public static function dashboard()
-    {
-        require __DIR__ . "/../../views/dashboard.php";
     }
     public static function tables()
     {
@@ -48,5 +46,11 @@ class HomeController
         require __DIR__ . "/../../app/controller/MedController.php";
         $medObj = new MedController();
         $medObj->updateMed();
+
+    public static function dashboard(){
+        $patientmodel = new Patient();
+        $patientMagasins = $patientmodel->getPatientEnMagasin();
+        require __DIR__. "/../../views/dashboard.php";
+
     }
 }
