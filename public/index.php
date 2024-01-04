@@ -47,6 +47,19 @@ $route->get("/patient/delete-patient", function (){
 $route->get("/meds", function () {
     HomeController::meds();
 });
+$route->post("/add_med", function () {
+    HomeController::post_Med();
+});
+$route->get("/meds/get", function () {
+    HomeController::get_Meds();
+});
+$route->get("/med/get", function () {
+    HomeController::get_Med();
+});
+$route->post("/medUpd", function () {
+    HomeController::post_Upd_Med();
+});
+
 
 $route->post("/patient/updatePatient", function(){
     PatientController::updatePatientEnMagasin();

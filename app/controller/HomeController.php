@@ -22,9 +22,35 @@ class HomeController
     {
         require __DIR__ . "/../../views/charts.php";
     }
+    public static function post_Med()
+    {
+        require __DIR__ . "/../../app/controller/MedController.php";
+        $medObj = new MedController();
+        $medObj->addMed();
+    }
+
+    public static function get_Meds()
+    {
+        require __DIR__ . "/../../app/controller/MedController.php";
+        $medObj = new MedController();
+        $medObj->GetAllMeds();
+    }
+    public static function get_Med()
+    {
+        require __DIR__ . "/../../app/controller/MedController.php";
+        $medObj = new MedController();
+        $medObj->findMedById();
+    }
+    public static function post_Upd_Med()
+    {
+        require __DIR__ . "/../../app/controller/MedController.php";
+        $medObj = new MedController();
+        $medObj->updateMed();
+
     public static function dashboard(){
         $patientmodel = new Patient();
         $patientMagasins = $patientmodel->getPatientEnMagasin();
         require __DIR__. "/../../views/dashboard.php";
+
     }
 }
