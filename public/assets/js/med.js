@@ -11,7 +11,6 @@ $(document).ready(() => {
   const btn = document.querySelector(".submit");
 
   const generateTr = (name, type, description, price, img, id = "") => {
-    count++;
     return `<tr >
     <td>
     <input type="hidden" class="med_id" name="med_id" id="id" value="${id}">
@@ -34,7 +33,6 @@ $(document).ready(() => {
   };
 
   // hide/show med form
-
   $btnAdd.click(() => {
     $nameInp.val([]);
     $typeInp.val([]);
@@ -52,7 +50,6 @@ $(document).ready(() => {
   });
 
   // submit the form
-
   $form.submit((e) => {
     e.preventDefault();
     const $id = $("#med_idInp").val();
@@ -87,7 +84,9 @@ $(document).ready(() => {
               result.med_id
             )
           );
-          alert("Med Added Successfully");
+          // alert("Med Added Successfully");
+
+          console.log(result.img);
         },
         error: function (error) {
           console.error("Error adding medication:", error);
@@ -99,9 +98,6 @@ $(document).ready(() => {
       $priceInp.val([]);
       $imgInp.val([]);
     }
-
-    //UPDATE
-
     if (btn.id == "Upd") {
       data.append("med_id", $id);
       updateMedication(data);
@@ -142,7 +138,7 @@ $(document).ready(() => {
       const $tb = $("#datatablesSimple").find("tbody");
       let TbRow = "";
       data.forEach((med) => {
-        TbRow += `<tr data-index="${count}">
+        TbRow += `<tr>
           <td>
           <input type="hidden" class="med_id" name="med_id" id="id" value="${med.id}">
           <img class="postcard__img" src="assets/img2/${med.img}" style="width: 50px; height: 50px; border-radius: 50%;" alt="Image Title" />
