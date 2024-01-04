@@ -148,4 +148,11 @@ xhr.send(jsonData);
 
 
      }
- 
+    function   setAtt(id){
+        var hre =  document.getElementById('modal-send');
+        hre.href = '/deletesale?saleid=' + id;
+        console.log(hre);
+       
+                        };
+
+                  

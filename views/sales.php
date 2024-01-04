@@ -159,7 +159,7 @@
                                             <td><?php echo $A['sale_number']; ?> </td>
                                             <td><?php echo $A['sale_date'] ;   ?> </td>
                                             <td>
-                                            <button type="button" class="btn btn-primary d-btn" data-bs-toggle="modal" data-bs-target="#exampleModal" >
+                                            <button type="button" onclick="setAtt('<?php echo $A['sale_number']; ?>')" class="btn btn-primary d-btn" data-bs-toggle="modal" data-bs-target="#exampleModal" >
                                                delete
                                                 </button>
                                         </td>
@@ -169,7 +169,15 @@
                                                 </button>
                                             </td>
                                         </tr>
-                                        <!-- Modal -->
+                                        
+                                        <?php endforeach; ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+<!-- Modal -->
                                                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="top:300px !important;width:450px !important; left:40% !important;">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content" style="background-color:#2b2b28 !important;">
@@ -183,18 +191,11 @@
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                                         
-                                                        <a href="/deletesale?saleid=<?php echo $A['sale_number']; ?>"><button type="button" class="btn " style ="background: #e3b04b !important;">contunie</button></a>
+                                                        <a href=""  id="modal-send"><button type="button" class="btn " style ="background: #e3b04b !important;">contunie</button></a>
                                                     </div>
                                                     </div>
                                                 </div>
                                                 </div>
-                                        <?php endforeach; ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-
                 </main>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
@@ -210,6 +211,7 @@
                 </footer>
             </div>
         </div>
+
 <!-- --------------------------- -->
         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -277,10 +279,6 @@
                         <button  onclick="sendForm()" class="form-control btn btn-primary rounded  px-3">Save</button>
                       </div>
                        </div>
-                       <?php 
-
-
-                ?>
                 </div>
                 </div>
               </div>
@@ -302,7 +300,6 @@
         <!-- jQuery -->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script src="assets/js/js/jquery.min.js"></script>
         <script src="assets/js/js/scripts.js"></script>
         <script src="assets/js/js/popper.js"></script>
         <script src="assets/js/js/bootstrap.min.js"></script>
