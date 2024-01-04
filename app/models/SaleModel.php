@@ -20,14 +20,12 @@ class SaleModel
 
     function generateUniqueNumber()
     {
-
         $uniqueNumber = (int) (time() . mt_rand(1000, 9999));
         return $uniqueNumber;
     }
 
     public function getUsers()
     {
-
         $sql = "SELECT full_name,user_id FROM user";
         $result = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
         return $result;
@@ -35,7 +33,6 @@ class SaleModel
 
     public function getMidicin()
     {
-
         $sql = "SELECT `med_name`,`med_id` FROM `medicine`";
         $result = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
         return $result;
@@ -43,7 +40,6 @@ class SaleModel
 
     public function addSale($client, $midi)
     {
-
         $num = uniqid();
         echo 'sale is secces';
         $sql = "INSERT INTO sale ( sale_number,sale_plat, user_id, med_id) VALUES (  '$num' , 'store', $client , $midi)";

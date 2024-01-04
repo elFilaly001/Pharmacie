@@ -10,7 +10,6 @@ class router
     {
         $this->routes["get"][$uri] = $callback;
     }
-
     public function post($uri, $callback)
     {
         $this->routes["post"][$uri] = $callback;
@@ -21,7 +20,7 @@ class router
         if (array_key_exists($uri, $this->routes[$method] ?? array())) {
             $this->routes[$method][$uri]();
             
-        } else {
+        }else {
             echo "NOT FOUND";
         }
     }

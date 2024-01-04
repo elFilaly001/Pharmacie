@@ -34,18 +34,22 @@ $route->get("/dash", function () {
 
 $route->post("/patient/en-magasin", function (){
     PatientController::addPatientEnMagasin();
+    HomeController::dashboard();
+});
+$route->get("/table", function () {
+    HomeController::tables();
 });
 
 $route->get("/patient/delete-patient", function (){
     PatientController::deletePatientmagasin();
 });
 
-$route->get("/table", function () {
-    HomeController::tables();
-});
 $route->get("/meds", function () {
     HomeController::meds();
 });
 
+$route->post("/patient/updatePatient", function(){
+    PatientController::updatePatientEnMagasin();
+});
 
 $route->dispatch($uri, $method);

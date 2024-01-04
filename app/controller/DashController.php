@@ -11,8 +11,9 @@ class DashController {
         $Data  = new SaleModel;
         $Users = $Data->getUsers();
         $Midi = $Data->getMidicin();
-
+        $Users = $Data->addPatient();
         require __DIR__ . "/../../views/dashboard.php";
+
     }
 
 

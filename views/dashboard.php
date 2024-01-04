@@ -226,10 +226,8 @@
                         <div class="card-body">
                             <table id="datatablesSimple">
                                 <thead>
-
                                 <tr>
                                     <th>FullName</th>
-                                    <th>Type Patient</th>
                                     <th>Subscription Date</th>
                                     <th>Action</th>
                                 </tr>
@@ -237,41 +235,69 @@
                                 <tbody>
                                 <?php foreach($patientMagasins as $patient ):?>
                                     <tr>
-                                        <td><?=$patient['full_name']?></td>
-                                        <td><?=$patient['user_role']?></td>
+                                        <td id="continerPatient-<?= $patient['user_id'] ?>" ><?=$patient['full_name']?></td>
                                         <td><?=$patient['dateSubscription']?></td>
                                         <td>
                                             <a href="/patient/delete-patient?user_id=<?= $patient['user_id'] ?>" class="btn btn-danger">Delete</a>
+                                            <button type="button" onclick="getPatient('<?php echo $patient['user_id'] ?>', '<?php echo $patient['full_name'] ?>')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Update</button>
                                         </td>
                                     </tr>
                                 <?php endforeach;?>
-                              </tbody>
+                                </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
-
-            </main>
-            <footer class="py-4 bg-light mt-auto">
-                <div class="container-fluid px-4">
-                    <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted">Copyright &copy; Your Website 2021</div>
-                        <div>
-                            <a href="#">Privacy Policy</a>
-                            &middot;
-                            <a href="#">Terms &amp; Conditions</a>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+        </main>
+<footer class="py-4 bg-light mt-auto">
+    <div class="container-fluid px-4">
+        <div class="d-flex align-items-center justify-content-between small">
+            <div class="text-muted">Copyright &copy; Your Website 2021</div>
+            <div>
+                <a href="#">Privacy Policy</a>
+                &middot;
+                <a href="#">Terms &amp; Conditions</a>
+            </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-    <script src="js/scripts.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-    <script src="assets/js/chart-area-demo.js"></script>
-    <script src="assets/js/chart-bar-demo.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-    <script src="assets/js/datatables-simple-demo.js"></script>
+</footer>
+    </div>
+</div>
+<!-- for update patient -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Update Patient</h5>
+                <button type="button" id="close-update" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form>
+                <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">FullName</label>
+                            <input type="hidden" class="form-control" id="userId">
+                            <input type="text" class="form-control" id="fullName">
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" id="saveUpdate" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="assets/js/js/scripts.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+<script src="assets/js/js/datatables-simple-demo.js"></script>
+
 </body>
 </html>
