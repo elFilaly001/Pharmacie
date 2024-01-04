@@ -7,6 +7,7 @@ use App\controller\HomeController;
 use App\core\router;
 use App\controller\DashController;
 use App\controller\SaleController;
+use App\controller\Getusers;
 
 session_start();
 
@@ -24,14 +25,20 @@ $route->get("/shop", function () {
     HomeController::shop();
 });
 $route->get("/dash", function () {
-    DashController::getdata();
+    HomeController::dashboard();
 });
-$route->post("/sale", function () {
-    SaleController::addsale();
+$route->get("/table", function () {
+    HomeController::tables();
 });
-$route->get("/Admin", function(){
-    DashController::Admin();
+$route->get("/meds", function () {
+    HomeController::meds();
+});
+$route->get("/Admin",function(){
+    HomeController::Admin();
+
+});
+$route->get("/login",function(){
+    HomeController::login();
 });
 
 $route->dispatch($uri, $method);
-
