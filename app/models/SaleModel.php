@@ -5,6 +5,7 @@ namespace App\Models;
 
 use App\Models\Database;
 use PDO;
+use PDOException;
 
 class SaleModel
 {
@@ -50,5 +51,11 @@ class SaleModel
         } else {
             return $result;
         }
+    }
+
+    public function onlineSale()
+    {
+        $sql = "insert into sale values (null , ? ,CURDATE() , ? , 'online' , ? )";
+        $stmt = $this->db->prepare($sql);
     }
 }
