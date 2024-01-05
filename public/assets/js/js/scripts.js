@@ -76,3 +76,45 @@ function addNewSale() {
   // Send the JSON data
   xhr.send(jsonData);
 }
+
+ function getPatient(userId, fullNAme){
+
+  document.getElementById('userId').value = userId
+   document.getElementById('fullName').value = fullNAme
+
+ }
+
+ /*function setPatient(userId, fullNAme){
+
+    let user = document.getElementById('userId').value
+   let name = document.getElementById('fullName').value
+ }*/
+
+
+// $ = document.getelementByid.
+// ready : event listener => whene load a data do this
+ $(document).ready(function (){
+   $("#saveUpdate").click(function (){
+
+     let userid = $("#userId").val();
+     let fullName = $("#fullName").val();
+     if (fullName !== ""){
+       $.ajax({
+          url: "/patient/updatePatient",
+         method: "post",
+         data:{
+            userid: userid,
+            fullName: fullName
+         },
+         success: function (respens){
+           console.log(respens);
+           $("#close-update").click();
+           document.getElementById('continerPatient-' + userid).innerText = fullName;
+         }
+       })
+     }
+   })
+ })
+
+
+ 
