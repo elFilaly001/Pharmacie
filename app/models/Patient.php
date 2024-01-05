@@ -45,4 +45,12 @@ class Patient
         $result = $this->db->query($query);
         return $result;
     }
+
+    public function getPatientafterupdate($userid){
+        $query = "SELECT * FROM user WHERE  `user_id` = $userid";
+        $result = $this->db->query($query);
+        return $result;
+    }
+
+
 }

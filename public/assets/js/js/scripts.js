@@ -91,26 +91,27 @@ function getPatient(userId, fullNAme) {
 
 // $ = document.getelementByid.
 // ready : event listener => whene load a data do this
-$(document).ready(function () {
-  $("#saveUpdate").click(function () {
-    // document.getElementById('userId').value
 
-    let userid = $("#userId").val();
-    let fullName = $("#fullName").val();
-    if (fullName != "") {
-      $.ajax({
-        url: "/patient/updatePatient",
-        method: "post",
-        data: {
-          userid: userid,
-          fullName: fullName,
-        },
-        success: function (respens) {
-          $("#close-update").click();
-          document.getElementById("continerPatient-" + userid).innerText =
-            fullName;
-        },
-      });
-    }
-  });
-});
+ $(document).ready(function (){
+   $("#saveUpdate").click(function (){
+
+     let userid = $("#userId").val();
+     let fullName = $("#fullName").val();
+     if (fullName !== ""){
+       $.ajax({
+          url: "/patient/updatePatient",
+         method: "post",
+         data:{
+            userid: userid,
+            fullName: fullName
+         },
+         success: function (respens){
+           console.log(respens);
+           $("#close-update").click();
+           document.getElementById('continerPatient-' + userid).innerText = fullName;
+         }
+       })
+     }
+   })
+ })
+

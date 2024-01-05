@@ -47,6 +47,7 @@ class HomeController
         $medObj = new MedController();
         $medObj->updateMed();
     }
+
     public static function post_Last_Id()
     {
         require __DIR__ . "/../../app/controller/MedController.php";
@@ -59,10 +60,11 @@ class HomeController
         $medObj = new MedController();
         $medObj->DeleteMed();
     }
-    public static function dashboard()
-    {
-        require __DIR__ . "/../../views/dashboard.php";
+  
+    public static function dashboard(){
         $patientmodel = new Patient();
         $patientMagasins = $patientmodel->getPatientEnMagasin();
     }
+
+
 }
