@@ -21,6 +21,12 @@ class MedController
         header('Content-Type: application/json');
         echo $jsonResponse;
     }
+    public function AllMeds()
+    {
+        $sale = new MedModal();
+        $results = $sale->ViewMeds();
+        return $results;
+    }
 
     public function DeleteMed()
     {

@@ -114,8 +114,6 @@ $(document).ready(() => {
         body: data,
       });
 
-      alert("Med updated Successfully");
-
       if (!response.ok) {
         throw new Error("Network response was not ok.");
       }
